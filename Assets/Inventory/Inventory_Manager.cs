@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -21,6 +20,7 @@ public class Inventory_Manager : MonoBehaviour
     private Inventory_SlotRenderer selectedSlot = null;
     private bool dragEnabled = false;
     private Vector2 mouseDownPos = Vector2.zero;
+    Vector2 screenScaler = Vector2.zero;
 
     void Start()
     {
@@ -59,6 +59,8 @@ public class Inventory_Manager : MonoBehaviour
                 hoveredSlot = result.gameObject.GetComponent<Inventory_SlotRenderer>();
             }
         }
+
+        screenScaler = new Vector2((transform as RectTransform).sizeDelta.x / Screen.width, (transform as RectTransform).sizeDelta.y / Screen.height);
     }
 
     private void ProcessMouseClicks()
@@ -80,9 +82,9 @@ public class Inventory_Manager : MonoBehaviour
             if (inventory.GetSlotAtIndex(hoveredSlot.inventoryIndex).isOccupied)
             {
                 //begin drag
+                mouseDownPos = Input.mousePosition * screenScaler;
                 selectedSlot = hoveredSlot;
                 dragEnabled = true;
-                mouseDownPos = new Vector2(Input.mousePosition.x - (Screen.width / 2.0f), Input.mousePosition.y - (Screen.height / 2.0f));
             }
         }
     }
@@ -110,7 +112,7 @@ public class Inventory_Manager : MonoBehaviour
     {
         if (selectedSlot && dragEnabled)
         {
-            Vector2 dragPos = new Vector2(Input.mousePosition.x - (Display.displays[0].renderingWidth / 2.0f), Input.mousePosition.y - (Display.displays[0].renderingHeight / 2.0f));
+            Vector2 dragPos = Input.mousePosition * screenScaler;
             float dragMagnitude = (mouseDownPos - dragPos).magnitude;
             if (dragMagnitude > 20.0f)
             {
