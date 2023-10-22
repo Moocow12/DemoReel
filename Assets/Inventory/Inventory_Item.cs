@@ -1,32 +1,35 @@
 using UnityEngine;
 
-/// <summary>
-/// Base item for the Inventory program
-/// </summary>
-public class Inventory_Item : ScriptableObject
+namespace Inventory
 {
-    [SerializeField] private int itemID = 0;
-    [SerializeField] private int goldValue = 0;
-    [SerializeField] private int maxStackSize = 1;
-    [SerializeField] private Texture2D iconTexture;
-
-    public int GetItemID()
+    /// <summary>
+    /// Base item for the Inventory program
+    /// </summary>
+    public class Inventory_Item : ScriptableObject
     {
-        return itemID;
-    }
+        [SerializeField] private int itemID = 0;
+        [SerializeField] private int goldValue = 0;
+        [SerializeField] private int maxStackSize = 1;
+        [SerializeField] private Texture2D iconTexture;
 
-    public int GetGoldValue()
-    {
-        return goldValue;
-    }
+        public int GetItemID()
+        {
+            return itemID;
+        }
 
-    public int GetMaxStackSize()
-    {
-        return maxStackSize;
-    }
+        public int GetGoldValue()
+        {
+            return goldValue;
+        }
 
-    public Texture2D GetIconTexture()
-    {
-        return iconTexture;
+        public int GetMaxStackSize()
+        {
+            return maxStackSize;
+        }
+
+        public Texture2D GetIconTexture()
+        {
+            return iconTexture;
+        }
     }
 }

@@ -2,27 +2,30 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Inventory_SlotRenderer : MonoBehaviour
+namespace Inventory
 {
-    public Image frame;
-    public RawImage iconImage;
-    public TextMeshProUGUI stackSizeLabel;
-    public int inventoryIndex { get; private set; } = -1;
-
-    [SerializeField] private Color highlightColor;
-
-    public void SetInventoryIndex(int index)
+    public class Inventory_SlotRenderer : MonoBehaviour
     {
-        inventoryIndex = index;
-    }
+        public Image frame;
+        public RawImage iconImage;
+        public TextMeshProUGUI stackSizeLabel;
+        public int inventoryIndex { get; private set; } = -1;
 
-    public void OnMouseEnter()
-    {
-        frame.color = highlightColor;
-    }
+        [SerializeField] private Color highlightColor;
 
-    public void OnMouseExit()
-    {
-        frame.color = Color.white;
+        public void SetInventoryIndex(int index)
+        {
+            inventoryIndex = index;
+        }
+
+        public void OnMouseEnter()
+        {
+            frame.color = highlightColor;
+        }
+
+        public void OnMouseExit()
+        {
+            frame.color = Color.white;
+        }
     }
 }

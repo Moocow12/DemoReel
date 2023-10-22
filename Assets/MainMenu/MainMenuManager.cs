@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuManager : MonoBehaviour
+namespace MainMenu
 {
-    private const string INVENTORY_SCENE = "InventoryScene";
-
-    public void LoadInventoryScene()
+    public class MainMenuManager : MonoBehaviour
     {
-        SceneManager.LoadScene(INVENTORY_SCENE);
+        private const string INVENTORY_SCENE = "InventoryScene";
+
+        public void LoadInventoryScene()
+        {
+            SceneManager.LoadScene(INVENTORY_SCENE);
+        }
     }
 }
+

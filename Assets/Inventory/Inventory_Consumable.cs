@@ -1,12 +1,15 @@
 using UnityEngine;
 
-[CreateAssetMenu()]
-public class Inventory_Consumable : Inventory_Item
+namespace Inventory
 {
-    public bool Use()
+    [CreateAssetMenu()]
+    public class Inventory_Consumable : Inventory_Item
     {
-        //do something
+        public bool Use()
+        {
+            //do something
 
-        return true;
+            return true;
+        }
     }
 }

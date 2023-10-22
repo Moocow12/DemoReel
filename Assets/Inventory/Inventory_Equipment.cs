@@ -1,25 +1,28 @@
 using UnityEngine;
 
-[CreateAssetMenu()]
-public class Inventory_Equipment : Inventory_Item
+namespace Inventory
 {
-    public enum EquipmentType { SWORD, SHIELD, DEFAULT }
-    [SerializeField] private int damage = 0;
-    [SerializeField] private int armor = 0;
-    [SerializeField] private EquipmentType type = EquipmentType.DEFAULT;
-
-    public int GetDamage()
+    [CreateAssetMenu()]
+    public class Inventory_Equipment : Inventory_Item
     {
-        return damage;
-    }
+        public enum EquipmentType { SWORD, SHIELD, DEFAULT }
+        [SerializeField] private int damage = 0;
+        [SerializeField] private int armor = 0;
+        [SerializeField] private EquipmentType type = EquipmentType.DEFAULT;
 
-    public int GetArmor()
-    {
-        return armor;
-    }
+        public int GetDamage()
+        {
+            return damage;
+        }
 
-    public EquipmentType GetEquipmentType()
-    {
-        return type;
+        public int GetArmor()
+        {
+            return armor;
+        }
+
+        public EquipmentType GetEquipmentType()
+        {
+            return type;
+        }
     }
 }
